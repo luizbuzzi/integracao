@@ -16,6 +16,8 @@ def time():
     r = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json',
                     params=payload)
     
+    data = json.loads(r.text)['rows'][0]['elements'][0]['duration']['value']
+    
     return str(data)
 
 
